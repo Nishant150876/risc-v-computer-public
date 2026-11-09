@@ -1,0 +1,43 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Sun Nov  8 12:26:33 2026
+| Host         : BUCKY running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file C:/Users/Nisha/OneDrive/Desktop/risc-v-computer/build/phase6/vivado-single25-clean/hierarchical_utilization.rpt
+| Design       : basys3_soc
+| Device       : xc7a35tcpg236-1
+| Speed File   : -1
+| Design State : Routed
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-----------------+---------------+------------+------------+---------+------+-----+--------+--------+------------+
+|     Instance    |     Module    | Total LUTs | Logic LUTs | LUTRAMs | SRLs | FFs | RAMB36 | RAMB18 | DSP Blocks |
++-----------------+---------------+------------+------------+---------+------+-----+--------+--------+------------+
+| basys3_soc      |         (top) |       1682 |       1630 |      50 |    2 | 570 |     22 |      0 |          0 |
+|   (basys3_soc)  |         (top) |          0 |          0 |       0 |    0 |  72 |      0 |      0 |          0 |
+|   u_soc         |           soc |       1681 |       1629 |      50 |    2 | 498 |     22 |      0 |          0 |
+|     u_vga       |           vga |        167 |        165 |       0 |    2 |  98 |      6 |      0 |          0 |
+|       (u_vga)   |           vga |         72 |         70 |       0 |    2 |  57 |      0 |      0 |          0 |
+|       u_timing  |    vga_timing |         61 |         61 |       0 |    0 |  20 |      0 |      0 |          0 |
+|     g_cpu.u_cpu |    cpu_single |        271 |        227 |      44 |    0 |  33 |      0 |      0 |          0 |
+|       u_regfile |       regfile |        206 |        162 |      44 |    0 |   0 |      0 |      0 |          0 |
+|       u_next_pc |       next_pc |         63 |         63 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     u_io        |      board_io |         57 |         57 |       0 |    0 | 184 |      0 |      0 |          0 |
+|       (u_io)    |      board_io |         16 |         16 |       0 |    0 |  79 |      0 |      0 |          0 |
+|       u_buttons |      debounce |         41 |         41 |       0 |    0 | 105 |      0 |      0 |          0 |
+|     u_perf      | perf_counters |         34 |         34 |       0 |    0 |  64 |      0 |      0 |          0 |
+|     u_ram       |           ram |       1054 |       1054 |       0 |    0 |   0 |     16 |      0 |          0 |
+|     u_uart      |          uart |         76 |         70 |       6 |    0 |  81 |      0 |      0 |          0 |
++-----------------+---------------+------------+------------+---------+------+-----+--------+--------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

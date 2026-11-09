@@ -1,0 +1,42 @@
+menu "T1 UI"
+
+    choice T1_BACKEND
+        prompt "Data backend"
+        default T1_BACKEND_MOCK
+        config T1_BACKEND_MOCK
+            bool "Labelled MOCK (no FPGA required)"
+        config T1_BACKEND_UART
+            bool "Real dedicated packet UART (requires verified wiring)"
+    endchoice
+    if T1_BACKEND_UART
+        config T1_DEBUG_TX_GPIO
+            int "Verified Tab5 debug TX GPIO (-1 = unassigned)"
+            range -1 54
+            default -1
+        config T1_DEBUG_RX_GPIO
+            int "Verified Tab5 debug RX GPIO (-1 = unassigned)"
+            range -1 54
+            default -1
+        comment "Verify T0 UART loopback, electrical compatibility and cable before assigning pins. UART0/USB stays separate."
+    endif
+
+    choice T1_UI_ROTATION
+        prompt "Screen rotation"
+        default T1_UI_ROTATION_90
+        help
+            The Tab5 panel is 720 x 1280 portrait. 90 or 270 gives the
+            1280 x 720 landscape layout; 0 or 180 gives the portrait layout.
+            Pick 270 if the landscape picture is upside down for the way
+            you hold the Tab5.
+
+        config T1_UI_ROTATION_0
+            bool "0 (portrait)"
+        config T1_UI_ROTATION_90
+            bool "90 (landscape)"
+        config T1_UI_ROTATION_180
+            bool "180 (portrait, flipped)"
+        config T1_UI_ROTATION_270
+            bool "270 (landscape, flipped)"
+    endchoice
+
+endmenu

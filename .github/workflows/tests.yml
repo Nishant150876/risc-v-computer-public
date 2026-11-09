@@ -1,0 +1,42 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verilator:
+    # ubuntu-24.04 ships Verilator 5.020 and RISC-V GCC 13.2, the same
+    # versions used in WSL.
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true   # sw/riscv-tests (official rv32ui programs)
+      - name: Install Verilator and RISC-V GCC
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y verilator gcc-riscv64-unknown-elf cmake
+          verilator --version
+          riscv64-unknown-elf-gcc --version | head -1
+      - name: Verify reproducible public-domain VGA font
+        run: python3 scripts/font2mem.py --check --c-header sw/common/vga_font8x8.inc
+      - name: Run every testbench and CPU program
+        run: python3 scripts/run_tests.py
+      - name: Check utilities and CPU harness failure paths
+        run: python3 -m unittest discover -s scripts/tests -v
+      - name: Check debug protocol generated files are current
+        run: python3 scripts/gen_protocol.py --check
+      - name: Debug protocol codecs, session model and C-versus-Python comparison
+        run: python3 -m unittest discover -s host/tests -v
+      - name: Tab5 worker and touchscreen desktop checks
+        env:
+          T1_SIM_BUILD_DIR: ${{ runner.temp }}/tab5-ui
+        run: bash firmware/tab5/t1_ui/sim/run_sim.sh
+      - name: Save labelled desktop UI previews
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tab5-ui-fixtures
+          path: ${{ runner.temp }}/tab5-ui/shots/
+          if-no-files-found: ignore

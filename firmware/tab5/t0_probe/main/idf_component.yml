@@ -1,0 +1,5 @@
+## Tab5 board support. Version pinned for T0; the resolved tree is recorded
+## in dependencies.lock after the first build. Commit that file.
+dependencies:
+  idf: ">=5.5.0,<5.6.0"
+  espressif/m5stack_tab5: "==1.3.2"

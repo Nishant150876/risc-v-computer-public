@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "kind": "source-only automated self-check; not independent human gate",
+  "source_export": "build/phase7/rebuild-source",
+  "files_copied": 296,
+  "generated_build_outputs_copied": false,
+  "git_metadata_copied": false,
+  "riscv_tests_submodule_copied": false,
+  "scope": "font reproduction and six RV32I demo image rebuilds; not full FPGA/ISA rebuild",
+  "images": [
+    {
+      "program": "primes",
+      "cpu_hz": 25000000,
+      "image_sha256": "faeebbf1b072e9083beff97dce9f15b9ace35108f33ef48a305fe4b3fe40655a",
+      "image_bytes": 4512,
+      "bss_start": 4512,
+      "bss_end": 5764,
+      "matches_existing_tested_image": true
+    },
+    {
+      "program": "primes",
+      "cpu_hz": 62500000,
+      "image_sha256": "faeebbf1b072e9083beff97dce9f15b9ace35108f33ef48a305fe4b3fe40655a",
+      "image_bytes": 4512,
+      "bss_start": 4512,
+      "bss_end": 5764,
+      "matches_existing_tested_image": true
+    },
+    {
+      "program": "life",
+      "cpu_hz": 25000000,
+      "image_sha256": "01ebf2271ec2fb22451ba3b352c28a698cd2ec6e4e4e09bdab4541c1fa104db2",
+      "image_bytes": 3028,
+      "bss_start": 3028,
+      "bss_end": 8872,
+      "matches_existing_tested_image": true
+    },
+    {
+      "program": "life",
+      "cpu_hz": 62500000,
+      "image_sha256": "007868329b3728834902ecb1009d64aa2d9b0978313607b26e5b3f389628a204",
+      "image_bytes": 3028,
+      "bss_start": 3028,
+      "bss_end": 8872,
+      "matches_existing_tested_image": true
+    },
+    {
+      "program": "snake",
+      "cpu_hz": 25000000,
+      "image_sha256": "f1af63ea768a96bc8168dcdc6a60cbbf96edc224a26db0c52735f4ffcd3a7782",
+      "image_bytes": 5536,
+      "bss_start": 5536,
+      "bss_end": 8704,
+      "matches_existing_tested_image": true
+    },
+    {
+      "program": "snake",
+      "cpu_hz": 62500000,
+      "image_sha256": "d81e2589642ed9f9dd3c4f24d7e69701f0f8c2b1dfddd34ad512eadd8e3aee16",
+      "image_bytes": 5536,
+      "bss_start": 5536,
+      "bss_end": 8704,
+      "matches_existing_tested_image": true
+    }
+  ]
+}

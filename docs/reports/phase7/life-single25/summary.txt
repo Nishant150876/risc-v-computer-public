@@ -1,0 +1,1 @@
+cpu=single mhz=25 program=life wns=0.396 whs=0.074

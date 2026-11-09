@@ -1,0 +1,2 @@
+# Windows physical-board UART checker; simulation utilities remain standard-library only.
+pyserial==3.5

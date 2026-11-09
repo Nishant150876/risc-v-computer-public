@@ -1,0 +1,101 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Smoke: prepare output",
+            "type": "process",
+            "command": "mkdir",
+            "args": [
+                "-p",
+                "${env:HOME}/.cache/risc-v-computer/smoke"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Smoke: compile counter",
+            "type": "process",
+            "command": "verilator",
+            "args": [
+                "--binary",
+                "--timing",
+                "--assert",
+                "-Wall",
+                "-j",
+                "2",
+                "--top-module",
+                "counter_tb",
+                "--Mdir",
+                "${env:HOME}/.cache/risc-v-computer/smoke",
+                "${workspaceFolder}/rtl/core/counter.sv",
+                "${workspaceFolder}/tb/core/counter_tb.sv"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "dependsOn": "Smoke: prepare output",
+            "problemMatcher": [
+                {
+                    "owner": "verilator",
+                    "fileLocation": "absolute",
+                    "severity": "error",
+                    "pattern": {
+                        "regexp": "^%Error(?:-[^:]+)?:\\s+(.+?):(\\d+):(\\d+):\\s+(.*)$",
+                        "file": 1,
+                        "line": 2,
+                        "column": 3,
+                        "message": 4
+                    }
+                },
+                {
+                    "owner": "verilator",
+                    "fileLocation": "absolute",
+                    "severity": "warning",
+                    "pattern": {
+                        "regexp": "^%Warning(?:-[^:]+)?:\\s+(.+?):(\\d+):(\\d+):\\s+(.*)$",
+                        "file": 1,
+                        "line": 2,
+                        "column": 3,
+                        "message": 4
+                    }
+                }
+            ]
+        },
+        {
+            "label": "Smoke: build and run counter",
+            "type": "process",
+            "command": "${env:HOME}/.cache/risc-v-computer/smoke/Vcounter_tb",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "dependsOn": "Smoke: compile counter",
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Tests: run all testbenches",
+            "type": "process",
+            "command": "python3",
+            "args": [
+                "${workspaceFolder}/scripts/run_tests.py"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}

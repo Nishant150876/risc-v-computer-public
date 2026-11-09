@@ -1,0 +1,5 @@
+// ram_tb init image: one 32-bit word per line, word 0 first
+deadbeef
+00000013
+@00003fff
+12345678

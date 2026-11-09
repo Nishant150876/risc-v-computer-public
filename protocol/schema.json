@@ -1,0 +1,135 @@
+{
+  "protocol_version": 1,
+  "schema_minor": 0,
+  "limits": {
+    "header_bytes": 24,
+    "max_payload": 256,
+    "crc_bytes": 4,
+    "max_frame": 284,
+    "max_encoded": 286,
+    "max_wire": 287,
+    "interbyte_timeout_ms": 100,
+    "lease_ms": 2000,
+    "response_timeout_ms": 500,
+    "max_retries": 3,
+    "keepalive_ms": 500,
+    "max_mem_data": 192,
+    "max_chunk": 192,
+    "max_name": 48,
+    "max_ping_echo": 32
+  },
+  "channels": {"CONTROL": 0, "CONSOLE": 1, "EVENT": 2},
+  "kinds": {"REQUEST": 0, "RESPONSE": 1, "EVENT": 2},
+  "opcodes": {
+    "HELLO": 1, "PING": 2, "STATUS": 3,
+    "HALT": 16, "RESUME": 17, "STEP": 18, "CPU_RESET": 19, "RESTART": 20,
+    "REG_READ": 32, "REG_WRITE": 33, "MEM_READ": 48, "MEM_WRITE": 49,
+    "LOAD_BEGIN": 64, "LOAD_CHUNK": 65, "LOAD_COMMIT": 66, "LOAD_ABORT": 67, "RUN": 68,
+    "BREAK_SET": 80, "BREAK_LIST": 81, "BREAK_CLEAR": 82,
+    "SNAP_CAPTURE": 96, "SNAP_READ": 97, "TRACE_FREEZE": 98, "TRACE_READ": 99, "TRACE_ARM": 100,
+    "COUNTERS_LATCH": 112, "COUNTERS_READ": 113,
+    "CONSOLE_READ": 128, "CONSOLE_WRITE": 129, "CONSOLE_STATUS": 130,
+    "BIST_START": 144, "BIST_ABORT": 145, "DIAG_RESULT": 146,
+    "INJECT_ARM": 160, "INJECT_FIRE": 161, "INJECT_CLEAR": 162, "INJECT_RESULT": 163
+  },
+  "status": {
+    "OK": 0, "ACCEPTED": 1,
+    "UNSUPPORTED": 256, "BAD_ARGUMENT": 257, "BAD_ADDRESS": 258, "ALIGNMENT": 259,
+    "BAD_STATE": 260, "BUSY": 261, "BAD_SESSION": 262, "ID_CONFLICT": 263,
+    "STALE_REQUEST": 264, "BUS_ERROR": 265, "OUTCOME_UNKNOWN": 266, "IMAGE_INVALID": 267,
+    "VERIFY_FAILED": 268, "ABORTED": 269, "NOT_FOUND": 270
+  },
+  "frame_errors": {
+    "OK": 0, "TOO_LONG": 1, "COBS_INVALID": 2, "TOO_SHORT": 3, "BAD_LENGTH": 4,
+    "BAD_CRC": 5, "BAD_VERSION": 6, "BAD_RESERVED": 7, "BAD_CHANNEL": 8, "BAD_KIND": 9,
+    "TIMEOUT": 10
+  },
+  "capabilities": {
+    "BASE_STATUS": 0, "RAM_ACCESS": 1, "LOADER": 2, "CONSOLE": 3,
+    "HALT_RESUME": 4, "REG_ACCESS": 5, "STEP": 6, "BREAKPOINTS": 7,
+    "PIPE_SNAPSHOT": 8, "RETIRE_TRACE": 9, "BASE_COUNTERS": 10, "PERF64": 11,
+    "MEM_BIST": 12, "ALU_BIST": 13, "FAULT_INJECT": 14, "REFERENCE_CAPTURE": 15
+  },
+  "cpu_states": {
+    "RESET_HELD": 0, "HALTED": 1, "RUNNING": 2, "HALT_REQUESTED": 3,
+    "STEPPING": 4, "BREAKPOINT": 5, "TERMINATED": 6, "ERROR": 7, "ABSENT": 255
+  },
+  "operation_states": {
+    "IDLE": 0, "LOADING": 1, "VERIFYING": 2, "BIST": 3, "INJECTING": 4,
+    "ABORTING": 5, "DONE": 6, "FAILED": 7
+  },
+  "link_states": {
+    "DISCONNECTED": 0, "DISCOVERING": 1, "CONNECTED": 2, "RECONCILING": 3,
+    "READY": 4, "DEGRADED": 5
+  },
+  "session_states": {"NONE": 0, "YOURS": 1, "OTHER": 2},
+  "halt_reasons": {"NONE": 0, "REQUEST": 1, "STEP": 2, "BREAKPOINT": 3, "FAULT": 4, "RESET": 5},
+  "isa_flags": {"RV32I": 0},
+  "status_valid_bits": {"LAST_PC": 0, "NEXT_PC": 1, "IMAGE": 2, "MODIFIED": 3},
+  "payloads": {
+    "REG_READ_REQUEST": [["start","u8"],["count","u8"],["reserved0","u16"]],
+    "REG_WRITE_REQUEST": [["index","u8"],["reserved0","u8"],["reserved1","u16"],["value","u32"]],
+    "MEM_REQUEST": [["address","u32"],["size","u8"],["flags","u8"],["count","u16"]],
+    "LOAD_BEGIN_FIXED": [
+      ["address","u32"],["entry","u32"],["image_bytes","u32"],["crc32","u32"],
+      ["bss_address","u32"],["bss_bytes","u32"],["stack_bottom","u32"],["stack_top","u32"],
+      ["isa","u16"],["abi","u16"],["flags","u16"],["name_bytes","u16"]
+    ],
+    "LOAD_CHUNK_FIXED": [["load_id","u32"],["offset","u32"],["count","u16"],["reserved0","u16"]],
+    "IMAGE_REQUEST": [["image_id","u32"]],
+    "BREAK_SET_REQUEST": [["slot","u8"],["enabled","u8"],["reserved0","u16"],["pc","u32"]],
+    "BREAK_CLEAR_REQUEST": [["slot","u8"],["reserved0","u8"],["reserved1","u16"]],
+    "CAPTURE_READ_REQUEST": [["generation","u32"],["offset","u32"],["count","u16"],["reserved0","u16"]],
+    "CAPTURE_READ_RESPONSE": [["generation","u32"],["offset","u32"],["count","u16"],["record_bytes","u16"]],
+    "COUNTERS_RESPONSE": [
+      ["definition_version","u16"],["width","u8"],["count","u8"],["generation","u32"],
+      ["cycles","u64"],["instructions","u64"],["loads","u64"],["stores","u64"],["branches","u64"],["jumps","u64"],
+      ["cpu_epoch","u32"],["stopped","u8"],["reserved0","u8"],["reserved1","u16"]
+    ],
+    "TRACE_DESCRIPTOR": [
+      ["generation","u32"],["format","u16"],["record_bytes","u16"],["count","u16"],["depth","u16"],["flags","u32"],
+      ["first_order","u64"],["last_order","u64"],["overwritten","u64"],["cpu_epoch","u32"],["reserved0","u32"]
+    ],
+    "TRACE_RECORD": [
+      ["order_low","u32"],["pc","u32"],["instruction","u32"],["next_pc","u32"],
+      ["rd_value","u32"],["memory_address","u32"],["memory_data","u32"],["flags","u32"]
+    ],
+    "MEM_READ_RESPONSE": [["generation","u32"],["completed","u16"],["size","u8"],["reserved0","u8"]],
+    "MEM_WRITE_RESPONSE": [["completed","u16"],["size","u8"],["outcome_unknown","u8"],["address","u32"]],
+    "REG_READ_RESPONSE": [["generation","u32"],["start","u8"],["count","u8"],["reserved0","u16"]],
+    "REG_WRITE_RESPONSE": [["generation","u32"],["value","u32"]],
+    "LOAD_PROGRESS": [["load_id","u32"],["received","u32"]],
+    "OPERATION_REQUEST": [["operation_id","u64"]],
+    "LOAD_RESULT": [
+      ["operation_id","u64"],["kind","u8"],["state","u8"],["status","u16"],["completed","u32"],
+      ["expected_crc","u32"],["observed_crc","u32"],["address","u32"],["image_id","u32"],["reserved0","u32"]
+    ],
+    "BIST_REQUEST": [["test_id","u8"],["reserved0","u8"],["reserved1","u16"],["address","u32"],["bytes","u32"]],
+    "BIST_RESULT": [
+      ["operation_id","u64"],["kind","u8"],["state","u8"],["status","u16"],["completed","u32"],
+      ["first_address","u32"],["expected","u32"],["observed","u32"],["failures","u32"],
+      ["address","u32"],["bytes","u32"],["phase","u8"],["reserved0","u8"],["reserved1","u16"]
+    ],
+    "INJECT_ARM_REQUEST": [["kind","u8"],["trigger","u8"],["duration","u16"],["address","u32"],["mask","u32"],["flags","u32"]],
+    "INJECT_REQUEST": [["arm_id","u32"]],
+    "INJECT_RESULT": [
+      ["arm_id","u32"],["kind","u8"],["state","u8"],["flags","u16"],["address","u32"],["mask","u32"],
+      ["saved_value","u32"],["trigger_value","u32"],["observed_value","u32"],["trigger_count","u32"],
+      ["operation_id","u64"],["detection_status","u16"],["cleanup_status","u16"],["restored_value","u32"]
+    ],
+    "HELLO_RESPONSE": [
+      ["protocol_version", "u8"], ["schema_minor", "u8"], ["descriptor_bytes", "u16"],
+      ["build_id", "u32"], ["isa_flags", "u32"], ["clock_hz", "u32"],
+      ["max_payload", "u16"], ["max_chunk", "u16"], ["capabilities", "u32"],
+      ["breakpoint_count", "u8"], ["trace_format", "u8"], ["trace_depth", "u16"],
+      ["cpu_state", "u8"], ["operation_state", "u8"], ["session_state", "u8"], ["reserved0", "u8"],
+      ["lease_remaining_ms", "u16"], ["operation_states_supported", "u16"]
+    ],
+    "STATUS_RESPONSE": [
+      ["cpu_state", "u8"], ["halt_reason", "u8"], ["operation_state", "u8"], ["valid", "u8"],
+      ["last_retired_pc", "u32"], ["next_pc", "u32"], ["image_id", "u32"],
+      ["operation_id", "u64"], ["frames_rejected", "u32"], ["uart_overruns", "u32"],
+      ["snapshot_generation", "u32"]
+    ]
+  }
+}

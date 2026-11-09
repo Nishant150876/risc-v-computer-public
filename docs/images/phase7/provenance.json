@@ -1,0 +1,75 @@
+{
+  "provenance": "simulated FPGA RGB pins; not photos",
+  "previews": [
+    {
+      "asset": "docs/images/phase7/life-glider-0.png",
+      "test": "life_tb:c/life",
+      "capture": "build/phase7/simulation/life_tb/life/life-glider-0.ppm",
+      "capture_sha256": "65e056f55c10e2fead2d66fc223af2fba924737e7cf0526f603e1798f5004f5c",
+      "png_sha256": "f26c249012d5e4b824865c35ebcf256e245390fe374956cf4f2df76deb29e6ca"
+    },
+    {
+      "asset": "docs/images/phase7/life-glider-4.png",
+      "test": "life_tb:c/life",
+      "capture": "build/phase7/simulation/life_tb/life/life-glider-4.ppm",
+      "capture_sha256": "1bb60ad4bcee7b0a306ec6fc111cf8f9968c6e2c264543ddb9b7c0a5aec28c10",
+      "png_sha256": "bd8891073d96c0d6a96666eea7e2fc69ddd6f39aad6ae7eb1cb6bba0ac8c7b9d"
+    },
+    {
+      "asset": "docs/images/phase7/life-gun.png",
+      "test": "life_tb:c/life",
+      "capture": "build/phase7/simulation/life_tb/life/life-gun-0.ppm",
+      "capture_sha256": "0155ce97a700bbc8a3f96f3e8cb3b2601383702529b6f302b5c69556ba877f30",
+      "png_sha256": "ba2921d7539bdcddaa439553c64bac536678fc82b7165754cd9d28a9ad9c5084"
+    },
+    {
+      "asset": "docs/images/phase7/life-rpentomino.png",
+      "test": "life_tb:c/life",
+      "capture": "build/phase7/simulation/life_tb/life/life-rpentomino-0.ppm",
+      "capture_sha256": "406cae213e9132b3913b961b3162c1f81413696212b9c40a6b5613cd41661004",
+      "png_sha256": "3bb3ed19c789e2a5ffb36eefe773a11179d1930890d3de7bce60f88af0ec5dfe"
+    },
+    {
+      "asset": "docs/images/phase7/snake-start.png",
+      "test": "snake_tb:c/snake",
+      "capture": "build/phase7/simulation/snake_tb/snake/snake-start.ppm",
+      "capture_sha256": "f8fece7193aead7270fe8b00dba9eb6cd4a83d34b2ff917f1d3b110680285154",
+      "png_sha256": "d257b50ecb73ab736050e68b7145788c668c3873efefccea70e500d372fe9afc"
+    },
+    {
+      "asset": "docs/images/phase7/snake-score-1.png",
+      "test": "snake_tb:c/snake",
+      "capture": "build/phase7/simulation/snake_tb/snake/snake-score-1.ppm",
+      "capture_sha256": "7bfd90bb4475fb260332b2cbc50871ad81728e3a5d0c6624ec02eefc6a9e53a9",
+      "png_sha256": "78cf98712876dca0ee81981df096b57b065394d984c757c7dd12fdbf70a65b0a"
+    },
+    {
+      "asset": "docs/images/phase7/snake-turn.png",
+      "test": "snake_tb:c/snake",
+      "capture": "build/phase7/simulation/snake_tb/snake/snake-turn.ppm",
+      "capture_sha256": "8c559620e63d7387f41b4f7c9d5d3efd98df8e0e3ae31712df92c41ab26f9dbb",
+      "png_sha256": "53307938f2726ff120e66ab0db43bea66a3c8e5cf4de2ce6cebec5cb6d976b05"
+    },
+    {
+      "asset": "docs/images/phase7/snake-paused.png",
+      "test": "snake_tb:c/snake",
+      "capture": "build/phase7/simulation/snake_tb/snake/snake-paused.ppm",
+      "capture_sha256": "716d4bf578a8a653681e4bb210f3f8dbef3c2edd49421635ab5deb5c35f8dcb7",
+      "png_sha256": "7ae8ded8f1bd3f6a7dccf046f1838782df06271408eccb728b86a35daa0199dc"
+    },
+    {
+      "asset": "docs/images/phase7/snake-game-over.png",
+      "test": "snake_tb:c/snake",
+      "capture": "build/phase7/simulation/snake_tb/snake/snake-game-over.ppm",
+      "capture_sha256": "7b417f9924bc4d45160ecc7c7226b18bb13314f1270c6ef17ffb19dc2c1d0b82",
+      "png_sha256": "114caa5545c36a9a4b0bf49871087bc807e18b94336d00dae1ff63fe581339a0"
+    },
+    {
+      "asset": "docs/images/phase7/snake-restarted.png",
+      "test": "snake_tb:c/snake",
+      "capture": "build/phase7/simulation/snake_tb/snake/snake-restarted.ppm",
+      "capture_sha256": "f8fece7193aead7270fe8b00dba9eb6cd4a83d34b2ff917f1d3b110680285154",
+      "png_sha256": "d257b50ecb73ab736050e68b7145788c668c3873efefccea70e500d372fe9afc"
+    }
+  ]
+}

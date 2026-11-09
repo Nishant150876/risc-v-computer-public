@@ -1,0 +1,1 @@
+cpu=pipe mhz=62.5 program=primes wns=0.313 whs=0.024

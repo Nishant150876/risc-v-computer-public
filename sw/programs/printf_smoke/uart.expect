@@ -1,0 +1,7 @@
+format: -2147483648 -1 0 2147483647
+unsigned: 0 4294967295
+hex: 0 89abcdef ffffffff
+text: ok Z % (null)
+unknown: %q tail%
+input?
+rx:K

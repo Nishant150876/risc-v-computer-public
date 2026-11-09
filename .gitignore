@@ -1,0 +1,60 @@
+# Generated build and simulation output
+/build/
+obj_dir/
+*.vcd
+*.fst
+
+# Vivado generated projects, runs, logs, and bitstreams
+.Xil/
+*.cache/
+*.gen/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+*.srcs/
+*.xpr
+*.jou
+*.log
+*.str
+*.wdb
+*.dcp
+*.bit
+*.ltx
+# Vivado scratch files written into the working directory
+clockInfo.txt
+dfx_runtime.txt
+# Vivado (Java) crash dumps
+hs_err_pid*
+
+# Compiled software
+*.o
+*.a
+*.elf
+*.bin
+*.map
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ESP-IDF generated state; keep defaults, manifests and dependency locks
+/firmware/tab5/build/
+/firmware/tab5/managed_components/
+/firmware/tab5/sdkconfig
+/firmware/tab5/sdkconfig.old
+
+# Editor and operating-system files
+.vscode/*
+!.vscode/tasks.json
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Keep source memory images (.mem/.coe) and reviewed reports (.rpt) trackable.
